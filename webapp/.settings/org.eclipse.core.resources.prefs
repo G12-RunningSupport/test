@@ -1,7 +1,9 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=refs/remotes/origin/master
 eclipse.preferences.version=1
+encoding//WebContent/kawamura.html=UTF-8
+encoding//WebContent/mori.html=UTF-8
 encoding//WebContent/seida.html=UTF-8
 encoding//WebContent/suzuki.html=UTF-8
-<<<<<<< HEAD
-=======
 encoding/<project>=UTF-8
->>>>>>> refs/remotes/origin/master
