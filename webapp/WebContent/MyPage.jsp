@@ -7,8 +7,8 @@
 <title>マイページ</title>
 </head>
 <body>
-ランキング<br>
-グラフ<br>
+※ランキングを表示<br>
+※グラフを表示<br>
 
 <!--
 <form action="/webapp/inputServlet">
@@ -20,7 +20,7 @@
 </form>
 -->
 
-<a href="DataServlet">詳細を表示する</a><br>
+<a href="CalSelectServlet">詳細を表示する</a><br>
 <a href="calEditor.jsp">カロリー入力</a><br>
 <a href="inputRoute.jsp">ルート入力</a><br>
 
