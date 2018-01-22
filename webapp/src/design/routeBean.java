@@ -43,7 +43,7 @@ public class routeBean {
 	public void setDistance(int distance){
 		Distance = distance;
 	}
-	public int getDintance(){
+	public int getDistance(){
 		return Distance;
 	}
 	public void setStart(String start){

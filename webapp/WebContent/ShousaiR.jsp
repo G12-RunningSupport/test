@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
@@ -6,28 +7,32 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>カロリー詳細データ</title>
+<title>ルート詳細データ</title>
 </head>
 <body>
-<h1>詳細データ</h1>
+<h1>ルート詳細データ</h1>
 
 <TABLE>
     <TR>
     <TD>日付</TD>
-    <TD>体重</TD>
-    <TD>摂取カロリー</TD>
+    <TD>回数</TD>
+    <TD>走行距離</TD>
+    <TD>スタート時間</TD>
+    <TD>フィニッシュ時間</TD>
 	</TR>
 	
 	<%
-   ArrayList<calBean> list = (ArrayList<calBean>)request.getAttribute("calList");
+   ArrayList<routeBean> list = (ArrayList<routeBean>)request.getAttribute("routeList");
    for (int i=0; i<list.size(); i++) {
-	   calBean cb = (calBean)list.get(i);
+	   routeBean rb = (routeBean)list.get(i);
 	%>
 	
 	<TR>
-    <TD><%=cb.getDate() %></TD>
-    <TD><%=cb.getWeight() %></TD>
-    <TD><%=cb.getCal() %></TD>
+    <TD><%=rb.getDate() %></TD>
+    <TD><%=rb.getNo() %></TD>
+    <TD><%=rb.getDistance() %></TD>
+    <TD><%=rb.getStart() %></TD>
+    <TD><%=rb.getFinish() %></TD>
 	</TR>
 
 	<%

@@ -36,10 +36,10 @@ public class RouteSelectServlet extends HttpServlet {
 		routeBean rb = new routeBean();
 		ArrayList<routeBean> list = rb.getRecords();
 		//結果ページを振り分け
-		if(!list.isEmpty())
-			dispatcher = request.getRequestDispatcher("routeDB-result.jsp");
-		else
-			dispatcher = request.getRequestDispatcher("routeDB-faild.jsp");
+		//if(!list.isEmpty())
+			dispatcher = request.getRequestDispatcher("ShousaiR.jsp");
+		//else
+			//dispatcher = request.getRequestDispatcher("routeDB-faild.jsp");
 		
 		//リストのインスタンスを遷移先へ渡す
 		request.setAttribute("routeList", list);
