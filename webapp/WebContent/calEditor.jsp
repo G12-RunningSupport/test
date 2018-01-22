@@ -21,11 +21,14 @@
 
 <br>
 摂取カロリー
-<form action="/webapp/inputServlet">
+<form action="/webapp/CalUpdateServlet">
 	<input type="TEXT" name="number"> kcal
+</form>
+体重
+	<form action="/webapp/CalUpdateServlet">
+	<input type="TEXT" name="weight"> kg
 	<input type="SUBMIT" value="登録"><br>
 </form>
-	
 
 <a href="MyPage.jsp">戻る</a>
 
