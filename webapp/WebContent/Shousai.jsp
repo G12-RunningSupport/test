@@ -22,10 +22,20 @@
 	</TR>
 	
 	<%
-	calBean cb = new calBean();
-	ArrayList<calBean> list = cb.getRecords();
+   ArrayList<calBean> list = (ArrayList<calBean>)request.getAttribute("calList");
+   for (int i=0; i<list.size(); i++) {
+	   calBean cb = (calBean)list.get(i);
 	%>
+	
+	<TR>
+    <TD><%=cb.getDate() %></TD>
+    <TD><%=cb.getWeight() %></TD>
+    <TD><%=cb.getCal() %></TD>
+	</TR>
 
+	<%
+	} 
+	%>
 
 </TABLE>
 <a href="MyPage.jsp">マイページに戻る</a><br>

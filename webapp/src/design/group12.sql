@@ -38,6 +38,12 @@ INSERT INTO UserInfo(Id,Birth,Sex,Height) VALUE ('kosentarou','2017-12-4',0,160)
 INSERT INTO Cal(Id,Date,Weight,Cal) VALUE ('kosentarou','2017-12-11',54.3,123);
 INSERT INTO Route(Id,Date,No,Distance,Start,Finish) VALUE ('kosentarou','2017-12-11',1,10,'12:10:00','12:20:00');
 
+INSERT INTO Cal(Id,Date,Weight,Cal) VALUE ('ito','2017-12-11',54.3,123);
+INSERT INTO Route(Id,Date,No,Distance,Start,Finish) VALUE ('ito','2017-12-11',1,10,'12:10:00','12:20:00');
+
+INSERT INTO Cal(Id,Date,Weight,Cal) VALUE ('mori','2017-12-11',54.3,123);
+
+
 DELETE FROM UserInfo WHERE Id='kosentarou';
 DELETE FROM Cal WHERE Id='kosentarou';
 DELETE FROM Route WHERE Id='kosentarou';
