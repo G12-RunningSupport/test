@@ -14,11 +14,17 @@
 <TABLE>
     <TR>
     <TD>日付</TD>
+    <TD>体重</TD>
+    <TD>摂取カロリー</TD>
+    <TD>回数</TD>
     <TD>走行距離</TD>
     <TD>走行時間</TD>
-    <TD>累計時間</TD>
-    <TD>摂取カロリー</TD>
 	</TR>
+	
+	<%
+	calBean cb = new calBean();
+	ArrayList<calBean> list = cb.getRecords();
+	%>
 
 
 </TABLE>

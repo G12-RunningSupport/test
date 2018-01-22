@@ -30,6 +30,8 @@ public class DataServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		RequestDispatcher dispatcher;
+		
+		
 		dispatcher = request.getRequestDispatcher("Shousai.jsp");
 		dispatcher.forward(request,response);
 

@@ -36,10 +36,12 @@ public class CalSelectServlet extends HttpServlet {
 		calBean cb = new calBean();
 		ArrayList<calBean> list = cb.getRecords();
 		//結果ページを振り分け
-		if(!list.isEmpty())
-			dispatcher = request.getRequestDispatcher("calDB-result.jsp");
-		else
-			dispatcher = request.getRequestDispatcher("calDB-faild.jsp");
+		//if(!list.isEmpty())
+			dispatcher = request.getRequestDispatcher("Shousai.jsp");
+			//dispatcher = request.getRequestDispatcher("calDB-result.jsp");
+		//else
+			//dispatcher = request.getRequestDispatcher("Shousai.jsp");
+			//dispatcher = request.getRequestDispatcher("calDB-faild.jsp");
 		
 		//リストのインスタンスを遷移先へ渡す
 		request.setAttribute("calList", list);
