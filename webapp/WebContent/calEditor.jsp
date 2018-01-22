@@ -27,7 +27,7 @@
 </form>
 	
 
-<a href="MyPage.jsp">登録</a>
+<a href="MyPage.jsp">戻る</a>
 
 </body>
 </html>

@@ -7,8 +7,8 @@
 <title>マイページ</title>
 </head>
 <body>
-ランキング<br>
-グラフ<br>
+※ランキングを表示<br>
+※グラフを表示<br>
 
 <!--
 <form action="/webapp/inputServlet">
