@@ -45,9 +45,9 @@ public class UserInfoUpdateServlet extends HttpServlet {
 		uib.setHeight(Integer.parseInt(height));
 		//ページ振り分け
 		if(uib.insertRecord())
-			dispatcher = request.getRequestDispatcher("userInfoDB-success.jsp");
+			dispatcher = request.getRequestDispatcher("Signup-success.jsp");
 		else
-			dispatcher = request.getRequestDispatcher("userInfoDB-failed.jsp");
+			dispatcher = request.getRequestDispatcher("Signup-failed.jsp");
 		
 		request.setAttribute("userInfoBean", uib);
 		dispatcher.forward(request,response);
