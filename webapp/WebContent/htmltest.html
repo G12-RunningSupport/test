@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+ 	<!-- head>
+ 	
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	</head>
+	<body>
+		<h3>Map</h3>
+		<div id="map" style="width:740px; height:400px;"><br/></div>
+		<script type="text/javascript">
+			var From = "東京駅"
+			var Via = "秋葉原駅"
+			
+			var myMap = new google.maps.Map(document.getElementById("map"),{
+				mapTypeId:google.maps.MapTypeId.ROADMAP,
+				scrollwheel:true,
+				scaleControl:true
+			});
+			
+			new google.maps.DirectionService().route({
+				origin:From,
+				destination:To,
+				travelMode:google.maps.DirectionTravelMode.WALKING
+			},function(result,status){
+				if(status == google.maps.DirectionsStatus.OK){
+					new google.maps.DirectionsRenderer({map:myMap}).setDirections(result);
+				}
+			});
+		</script>
+	</body -->
+
+
+	<!-- head>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsBOA04JHFBv-rvZukhm3ZCajNCpCOeL4"></script>
+		<script>
+			function makeMap(lat, lng) {    
+			var canvas = document.getElementById('map-canvas');
+			var latlng = new google.maps.LatLng(lat, lng);
+			var mapOptions = {
+				zoom: 17,
+				center: latlng,
+			};
+			var map = new google.maps.Map(canvas, mapOptions);
+			return map;
+			}
+			$(function(){
+				makeMap(35.446806, 139.636163);
+			};
+		</script>
+		<style>
+			#map-canvas {
+			width: 600px;
+			height: 400px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="map-canvas" width="600px" height="400px">ここにマップが表示されます</div>
+	</body -->
+
+
+	<head>
+		<title>Test Map</title>
+		<meta name="viewport" content="initial-scale=1.0">
+		<meta charset="utf-8">
+		<style>
+			#map {
+				height: 100%;
+			}
+			html, body {
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="map"></div>
+		<script>
+			var map;
+			function initMap() {
+			map = new google.maps.Map(document.getElementById('map'), {
+				center: {lat: -34.397, lng: 150.644},
+				zoom: 8
+				});
+			}
+		</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsBOA04JHFBv-rvZukhm3ZCajNCpCOeL4&callback=initMap" async defer></script>
+	</body>
+</html>
