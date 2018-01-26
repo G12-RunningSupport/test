@@ -36,9 +36,11 @@
   </head>
   <body>
     <div id="map"></div>
-    出発地:<input id="start" type="text" /><br/>
-    到着地:<input id="end" type="text" /><br/> 
-    <input type="button" value="検索" onclick="calculateAndDisplayRoute(start, end)" /><br/>
+    <from method="route" action="calculateAndDisplayRoute(start, end)">
+	    出発地:<input id="start" type="text" value="名古屋駅"/><br/>
+	    到着地:<input id="end" type="text" value="春日井駅"/><br/> 
+    	<!--input type="submit" value="検索" class="square_btn1" /><br/-->
+    </from>
   	<form method="GET" action="/webapp/RouteUpdateServlet">
   		<div id="date"></div>
     	スタート時間:<input name="startTime" type="text" value="9:00" >　フィニッシュ時間:<input name="finishTime" type="text" value="13:00">　　入力例）17:00 ※半角英数字<br>
