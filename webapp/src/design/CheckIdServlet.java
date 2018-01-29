@@ -42,7 +42,7 @@ public class CheckIdServlet extends HttpServlet {
 		 String id = request.getParameter("UserId");
 		
 		 // containメソッドでUserIdがDBに登録されているか確認する
-		 if(ub.containId(id)){
+		 if(ub.containID(id)){
 			 //beanの全要素をセット
 			 ub.setAll(id);
 			 // マイページをディスパッチする

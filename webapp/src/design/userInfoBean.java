@@ -49,7 +49,7 @@ public class userInfoBean {
 	public void setFailure(int failure){
 		this.failure = failure;
 	}
-	public int getErrno(){
+	public int getFailure(){
 		return this.failure;
 	}
 	

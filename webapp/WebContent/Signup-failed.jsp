@@ -4,6 +4,9 @@
 <%@ page import="design.*" %>
 <%@ page import="java.text.*" %>
 <!-- jsp:useBean id="userBean" class="userBean" scope="request" /-->
+<%@ page import = "java.util.*"%>
+<%@ page import = "java.text.*"%>
+<%@ page import = "design.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,16 +19,23 @@
 	<% userInfoBean ub = (userInfoBean)request.getAttribute("userBrean"); %>
 	<font color="red">
 	<% 	String errmes = new String("testtt");
-		switch(ub.getErrno()){
+	 	userInfoBean userBean = (userInfoBean)request.getAttribute("userBean");
+		//String errmes;
+		switch(userBean.getFailure()){
 			case 1:
-				errmes = new String("このIDは既に使用されています");
-				break;
-			case 2:
 				errmes = new String("ユーザー登録を完了できませんでした");
 				break;
+			case 2:
+				errmes = new String("このIDは既に使用されています");
+				break;
+			case 3:
+				errmes = new String("未入力の欄があります");
+				break;
+			default:
+				errmes = new String("tt");
 		}
 	%>
-	<%= errmes %>
+	<%=errmes %>
 	</font>
 	<form method="GET" action="/webapp/SignupServlet">
 		ユーザーID(半角英数16字以内):<br>

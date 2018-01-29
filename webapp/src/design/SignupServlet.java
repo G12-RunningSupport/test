@@ -43,8 +43,8 @@ public class SignupServlet extends HttpServlet {
 		 String year = request.getParameter("year");
 		 String month = request.getParameter("month");
 		 String day = request.getParameter("day");
-		 int	 sex = Integer.parseInt(request.getParameter("Sex"));
-		 int	 height = Integer.parseInt(request.getParameter("Height"));
+		 String sex = request.getParameter("Sex");
+		 String height = request.getParameter("Height");
 		 
 		 //setする
 		 ub.setId(id);
@@ -58,21 +58,41 @@ public class SignupServlet extends HttpServlet {
 			 dispatcher = request.getRequestDispatcher("MyPage.jsp");
 		 //ID重複
 		 }else if(x == -1){
+		 //未入力確認
+		 if(id.isEmpty() || year.isEmpty() || month.isEmpty() || day.isEmpty() || sex.isEmpty() || height.isEmpty()){
 			 ub.setFailure(1);
 			 dispatcher = request.getRequestDispatcher("Signup-failed.jsp");
-		 //その他のエラー
+			 ub.setFailure(3);	//未入力あり
+			 request.setAttribute("userBean", ub);
 		 }else{
 			 ub.setFailure(2);
-			 dispatcher = request.getRequestDispatcher("Signup-failed.jsp");
-		 }
+		 
+			 //setする
+			 ub.setId(id);
+			 ub.setBirth(year+"-"+month+"-"+day);
+			 ub.setSex(Integer.parseInt(sex));
+			 ub.setHeight(Integer.parseInt(height));
+		 
+			 //  データベースへの INSERT 処理の実行
+			 boolean x = ub.insertRecord();
+			 //登録成功
+			 if (x == true) {
+				 dispatcher = request.getRequestDispatcher("MyPage.jsp");
+//			 //ID重複
+//			 }else if(x == false){
+//				 dispatcher = request.getRequestDispatcher("Signup-failed.jsp");
+				 //その他のエラー
+			 }else{
+				 dispatcher = request.getRequestDispatcher("Signup-failed.jsp");
+			 }
 		
+			 // studentBean のインスタンスを request に詰めて
+			 // 次に遷移する JSP に渡す
+			 // JSP側 ではキーワード "studentBean" をつかってインスタンスを取り出す
+			 //  二重引用符の中の単語はクラス名である必要はなく、自分で自由に決めてよい
+			 request.setAttribute("userBean", ub);
 		 
-		 
-		 // studentBean のインスタンスを request に詰めて
-		 // 次に遷移する JSP に渡す
-		 // JSP側 ではキーワード "studentBean" をつかってインスタンスを取り出す
-		 //  二重引用符の中の単語はクラス名である必要はなく、自分で自由に決めてよい
-		 request.setAttribute("userBean", ub);
+		 }
 
 		 // 最後に JSP へ処理を遷移させる
 		 dispatcher.forward(request,response);

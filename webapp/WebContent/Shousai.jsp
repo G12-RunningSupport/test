@@ -35,6 +35,6 @@
 </TABLE>
 <br>
 <% 	request.setAttribute("userBean",ub);%>
-<a href="MyPage.jsp">マイページに戻る</a><br>
+<a href="MyPageSelectServlet">マイページに戻る</a><br>
 </body>
 </html>
