@@ -8,7 +8,7 @@
 </head>
 <body>
 ※ランキングを表示<br>
-※グラフを表示<br>
+<br>
 
 <!--
 <form action="/webapp/inputServlet">
