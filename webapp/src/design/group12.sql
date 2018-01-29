@@ -34,7 +34,7 @@ CREATE TABLE Route(
 	FOREIGN KEY(Id) REFERENCES UserInfo
 );
 
-INSERT INTO UserInfo(Id,Birth,Sex,Height) VALUE ('kosentarou','2017-12-4',0,160);
+INSERT INTO UserInfo(Id,Birth,Sex,Height) VALUE ('aaa','2017-12-4',0,160);
 INSERT INTO Cal(Id,Date,Weight,Cal) VALUE ('kosentarou','2017-12-11',54.3,123);
 
 INSERT INTO Route(Id,Date,No,Distance,Start,Finish) VALUE ('kosentarou','2017-12-11',1,20,'12:10:00','12:20:00');
