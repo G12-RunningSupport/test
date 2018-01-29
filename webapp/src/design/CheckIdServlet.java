@@ -1,6 +1,7 @@
 package design;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -41,6 +42,11 @@ public class CheckIdServlet extends HttpServlet {
 		 //   （送られてきたパラメータが ISO8859-1 で一旦デコードされているので元に戻す）
 		 String id = request.getParameter("UserId");
 		
+		 
+		 //ランキングの要素をセット
+		 routeBean rb = new routeBean();
+		 ArrayList<routeBean> list = rb.getRank();
+		 
 		 // containメソッドでUserIdがDBに登録されているか確認する
 		 if(ub.containID(id)){
 			 //beanの全要素をセット
@@ -59,6 +65,7 @@ public class CheckIdServlet extends HttpServlet {
 		 // JSP側 ではキーワード "studentBean" をつかってインスタンスを取り出す
 		 //  二重引用符の中の単語はクラス名である必要はなく、自分で自由に決めてよい
 		 request.setAttribute("userBean", ub);
+		 request.setAttribute("routeList", list);
 
 		 // 最後に JSP へ処理を遷移させる
 		 dispatcher.forward(request,response);
