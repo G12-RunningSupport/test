@@ -11,7 +11,9 @@
 </head>
 <body>
 
-<%userInfoBean ub = (userInfoBean)request.getAttribute("userBean");%>
+<%
+HttpSession se = request.getSession();
+userInfoBean ub = (userInfoBean)se.getAttribute("userBean");%>
 <% 
 	GregorianCalendar cal = new GregorianCalendar();
 	SimpleDateFormat format = new SimpleDateFormat("yyyy年M月d日");
@@ -19,7 +21,7 @@
 	out.println(""+datestr+"");
 
 %>
-<%request.setAttribute("userBean",ub); %>
+<%se.setAttribute("userBean",ub); %>
 <br>
 摂取カロリー
 <form action="/webapp/CalUpdateServlet">

@@ -31,12 +31,10 @@
     <TD align="center" valign="middle"><%=cb.getCal() %> kcal</TD>
 	</TR>
 
-	<%
-	} 
-	request.setAttribute("userBean",ub);
-	%>
+	<%}%>
 </TABLE>
 <br>
+<% 	request.setAttribute("userBean",ub);%>
 <a href="MyPage.jsp">マイページに戻る</a><br>
 </body>
 </html>

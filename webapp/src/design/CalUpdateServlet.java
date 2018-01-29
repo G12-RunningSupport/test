@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class CalUpdateServlet
@@ -37,7 +38,8 @@ public class CalUpdateServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		//データの受け取り
-		userInfoBean ub = (userInfoBean)request.getAttribute("userBean");
+		HttpSession se = request.getSession();
+		userInfoBean ub = (userInfoBean)se.getAttribute("userBean");
 		String id = ub.getId();
 		//String date = request.getParameter("date");
 		/*日付の取得*/
