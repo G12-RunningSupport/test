@@ -9,7 +9,6 @@
 <title>カロリー入力画面</title>
 </head>
 <body>
-あ
 
 <% 
 	GregorianCalendar cal = new GregorianCalendar();
@@ -30,7 +29,7 @@
 	<input type="SUBMIT" value="登録"><br>
 </form>
 
-<a href="MyPage.jsp">戻る</a>
+<a href="MyPageSelectServlet">戻る</a>
 
 </body>
 </html>

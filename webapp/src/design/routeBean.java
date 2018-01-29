@@ -126,4 +126,35 @@ public class routeBean {
 		}
 		
 	}
+	
+	//ランキングの取得
+		public ArrayList<routeBean> getRank() {
+			ArrayList<routeBean> list = new ArrayList<routeBean>();
+			try{
+				Connection con = DBManager.getUserConnection();
+				Statement smt = con.createStatement();
+				ResultSet rs = smt.executeQuery("SELECT* FROM Route ORDER BY Distance");
+				//SELECT文からのデータを1行ずつ取得して格納していく
+				while(rs.next()){
+					routeBean tmp = new routeBean();
+					tmp.setId(rs.getString("Id"));
+					tmp.setDate(rs.getString("Date"));
+					//tmp.setNo(rs.getInt("No"));
+					tmp.setDistance(rs.getInt("Distance"));
+					//tmp.setStart(rs.getString("Start"));
+					//tmp.setFinish(rs.getString("Finish"));
+					list.add(tmp);
+				}
+					rs.close();
+					smt.close();
+					con.close();
+					
+					return list;
+			}catch(Exception e){
+				return null;
+			}
+			
+		}
+	
+	
 }

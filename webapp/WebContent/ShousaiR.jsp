@@ -29,8 +29,8 @@
 	
 	<TR>
     <TD><%=rb.getDate() %></TD>
-    <TD><%=rb.getNo() %></TD>
-    <TD><%=rb.getDistance() %></TD>
+    <TD><%=rb.getNo() %>回</TD>
+    <TD><%=rb.getDistance() %>km</TD>
     <TD><%=rb.getStart() %></TD>
     <TD><%=rb.getFinish() %></TD>
 	</TR>
@@ -40,6 +40,6 @@
 	%>
 
 </TABLE>
-<a href="MyPage.jsp">マイページに戻る</a><br>
+<a href="MyPageSelectServlet">マイページに戻る</a><br>
 </body>
 </html>
