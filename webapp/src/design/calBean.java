@@ -87,12 +87,14 @@ public class calBean {
 		}		
 	}
 	//一覧の取得
-	public ArrayList<calBean> getRecords() {
+	public ArrayList<calBean> getRecords(String id) {
 		ArrayList<calBean> list = new ArrayList<calBean>();
 		try{
 			Connection con = DBManager.getUserConnection();
-			Statement smt = con.createStatement();
-			ResultSet rs = smt.executeQuery("SELECT* FROM Cal");
+			String sql = "SELECT* FROM Cal WHERE Id=?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1,id);
+			ResultSet rs = ps.executeQuery();
 			//SELECT文からのデータを1行ずつ取得して格納していく
 			while(rs.next()){
 				calBean tmp = new calBean();
@@ -103,7 +105,7 @@ public class calBean {
 				list.add(tmp);
 			}
 				rs.close();
-				smt.close();
+				ps.close();
 				con.close();
 				
 				return list;

@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class CalUpdateServlet
@@ -36,13 +37,16 @@ public class CalUpdateServlet extends HttpServlet {
 		calBean cb = new calBean();
 		
 		request.setCharacterEncoding("UTF-8");
-		//フォームからデータの受け取り
-		String id = request.getParameter("id");
+		//データの受け取り
+		HttpSession se = request.getSession();
+		userInfoBean ub = (userInfoBean)se.getAttribute("userBean");
+		String id = ub.getId();
 		//String date = request.getParameter("date");
 		/*日付の取得*/
 		GregorianCalendar cale = new GregorianCalendar();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy年M月d日");
 		String date = format.format(cale.getTime());
+		//フォームからデータ受け取り
 		String weight = request.getParameter("weight");
 		String cal = request.getParameter("number");
 		//セット
@@ -57,7 +61,7 @@ public class CalUpdateServlet extends HttpServlet {
 		/*else
 			dispatcher = request.getRequestDispatcher("calDB-failed.jsp");
 		*/
-		request.setAttribute("calBean", cb);
+		request.setAttribute("userBean", ub);
 		dispatcher.forward(request,response);
 
 	}

@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
+<%@ page import="design.*" %>
+<%@ page import="java.text.*" %>
+<!-- jsp:useBean id="userBean" class="userBean" scope="request" /-->
 <%@ page import = "java.util.*"%>
 <%@ page import = "java.text.*"%>
 <%@ page import = "design.*"%>
@@ -12,10 +16,11 @@
 <body>
 	<H1>Running Suport</H1>
 	<h2>新規ユーザー登録</h2>
-	
+	<% userInfoBean ub = (userInfoBean)request.getAttribute("userBrean"); %>
 	<font color="red">
-	<% 	userInfoBean userBean = (userInfoBean)request.getAttribute("userBean");
-		String errmes;
+	<% 	String errmes = new String("testtt");
+	 	userInfoBean userBean = (userInfoBean)request.getAttribute("userBean");
+		//String errmes;
 		switch(userBean.getFailure()){
 			case 1:
 				errmes = new String("ユーザー登録を完了できませんでした");
@@ -30,7 +35,7 @@
 				errmes = new String("tt");
 		}
 	%>
-	<%= errmes %>
+	<%=errmes %>
 	</font>
 	<form method="GET" action="/webapp/SignupServlet">
 		ユーザーID(半角英数16字以内):<br>

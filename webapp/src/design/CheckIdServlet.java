@@ -48,7 +48,7 @@ public class CheckIdServlet extends HttpServlet {
 		 ArrayList<routeBean> list = rb.getRank();
 		 
 		 // containメソッドでUserIdがDBに登録されているか確認する
-		 if(ub.containID(id)){
+		 if(ub.containId(id)){
 			 //beanの全要素をセット
 			 ub.setAll(id);
 			 // マイページをディスパッチする

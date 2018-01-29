@@ -46,12 +46,20 @@ public class SignupServlet extends HttpServlet {
 		 String sex = request.getParameter("Sex");
 		 String height = request.getParameter("Height");
 		 
+		 //setする
+		 ub.setId(id);
+		 ub.setBirth(year+"-"+month+"-"+day);
+		 ub.setSex(Integer.parseInt(sex));
+		 ub.setHeight(Integer.parseInt(height));
+
 		 //未入力確認
 		 if(id.isEmpty() || year.isEmpty() || month.isEmpty() || day.isEmpty() || sex.isEmpty() || height.isEmpty()){
+			 ub.setFailure(1);
 			 dispatcher = request.getRequestDispatcher("Signup-failed.jsp");
 			 ub.setFailure(3);	//未入力あり
 			 request.setAttribute("userBean", ub);
 		 }else{
+			 ub.setFailure(2);
 		 
 			 //setする
 			 ub.setId(id);

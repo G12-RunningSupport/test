@@ -10,7 +10,7 @@ public class userInfoBean {
 	private String Id;
 	private String Birth;
 	private int Sex,Height;
-	private int failure/*登録失敗時用 0:成功 1:エラー 2:重複*/;
+	private int failure/*登録失敗時用 0:成功 2:エラー 1:重複*/;
 	
 	public userInfoBean(){
 		;
@@ -54,20 +54,27 @@ public class userInfoBean {
 	}
 	
 	//フィールドにDBからIdの情報をセット
-	public void setAll(String Id){
+	public void setAll(String id){
 		try{
 			Connection con = DBManager.getUserConnection();
-			Statement smt = con.createStatement();
-			String sql="SELECT* FROM UserInfo Where Id=?";
+			//Statement smt = con.createStatement();
+			//int i = smt.executeUpdate("SELECT UserInfo Wehre Id ="+id+";");
+			//SQL文
+			String sql="SELECT* FROM UserInfo WHERE Id=?";
+			
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1,Id);
-			ResultSet rs = smt.executeQuery(sql);
+			ps.setString(1,id);
+			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
 				setId(rs.getString("Id"));
 				setBirth(rs.getString("Birth"));
 				setSex(rs.getInt("Sex"));
 				setHeight(rs.getInt("Height"));
 			}
+			rs.close();
+			ps.close();
+			//smt.close();
+			con.close();
 		}catch(Exception e){
 		}
 	}
@@ -135,7 +142,7 @@ public class userInfoBean {
 		
 	}
 	//IDが既に登録済みかの検索
-	public boolean containID(String Id){
+	public boolean containId(String Id){
 		try {
 			Connection con = DBManager.getUserConnection();
 			Statement smt = con.createStatement();

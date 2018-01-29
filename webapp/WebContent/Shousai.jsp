@@ -11,30 +11,30 @@
 <body>
 <h1>詳細データ</h1>
 
-<TABLE>
+<TABLE width="45%" height="5%">
     <TR>
-    <TD>日付</TD>
-    <TD>体重</TD>
-    <TD>摂取カロリー</TD>
+    <TD align="center" valign="middle">日付</TD>
+    <TD align="center" valign="middle">体重</TD>
+    <TD align="center" valign="middle">摂取カロリー</TD>
 	</TR>
 	
 	<%
+	userInfoBean ub = (userInfoBean)request.getAttribute("userBean");
    ArrayList<calBean> list = (ArrayList<calBean>)request.getAttribute("calList");
    for (int i=0; i<list.size(); i++) {
 	   calBean cb = (calBean)list.get(i);
 	%>
 	
 	<TR>
-    <TD><%=cb.getDate() %></TD>
-    <TD><%=cb.getWeight() %>kg</TD>
-    <TD><%=cb.getCal() %>kcal</TD>
+    <TD align="center" valign="middle"><%=cb.getDate() %></TD>
+    <TD align="right" valign="middle"><%=cb.getWeight()%> kg</TD>
+    <TD align="center" valign="middle"><%=cb.getCal() %> kcal</TD>
 	</TR>
 
-	<%
-	} 
-	%>
-
+	<%}%>
 </TABLE>
+<br>
+<% 	request.setAttribute("userBean",ub);%>
 <a href="MyPageSelectServlet">マイページに戻る</a><br>
 </body>
 </html>
