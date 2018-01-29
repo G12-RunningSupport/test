@@ -9,8 +9,10 @@
 <title>マイページ</title>
 </head>
 <body>
-<%userInfoBean ub = (userInfoBean)request.getAttribute("userBean");%>
-	ようこそ<%ub.getId(); %>さん
+<%userInfoBean ub = (userInfoBean)request.getAttribute("userBean");
+HttpSession se = request.getSession();
+%>
+	ようこそ<%out.print(ub.getId());%>さん
 ※ランキングを表示<br>
 <br>
 
@@ -23,7 +25,9 @@
 	<input type="SUBMIT" value="カロリー入力"><br>
 </form>
 -->
-<% request.setAttribute("userBean", ub); %>
+<% session.setAttribute("userBean", ub); 
+
+%>
 <a href="CalSelectServlet">カロリー詳細を表示する</a><br>
 <a href="RouteSelectServlet">ルート詳細を表示する</a><br>
 <a href="calEditor.jsp">カロリー入力</a><br>

@@ -44,6 +44,6 @@ INSERT INTO Route(Id,Date,No,Distance,Start,Finish) VALUE ('ito','2017-12-11',1,
 INSERT INTO Cal(Id,Date,Weight,Cal) VALUE ('mori','2017-12-11',54.3,123);
 
 
-DELETE FROM UserInfo WHERE Id='kosentarou';
+DELETE FROM UserInfo WHERE Id='aa';
 DELETE FROM Cal WHERE Id='kosentarou';
 DELETE FROM Route WHERE Id='kosentarou';

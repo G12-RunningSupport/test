@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="userBean" class="userInfoBean" scope="request" />
+<%@ page import="java.util.*" %>
+<%@ page import="design.*" %>
+<%@ page import="java.text.*" %>
+<!-- jsp:useBean id="userBean" class="userBean" scope="request" /-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,10 +13,10 @@
 <body>
 	<H1>Running Suport</H1>
 	<h2>新規ユーザー登録</h2>
-	
+	<% userInfoBean ub = (userInfoBean)request.getAttribute("userBrean"); %>
 	<font color="red">
 	<% 	String errmes = new String("testtt");
-		switch(userBean.getErrno()){
+		switch(ub.getErrno()){
 			case 1:
 				errmes = new String("このIDは既に使用されています");
 				break;

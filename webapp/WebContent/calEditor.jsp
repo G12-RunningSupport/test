@@ -24,10 +24,10 @@
 摂取カロリー
 <form action="/webapp/CalUpdateServlet">
 	<input type="TEXT" name="number"> kcal
-</form>
-体重
-	<form action="/webapp/CalUpdateServlet">
-	<input type="TEXT" name="weight"> kg
+<br>
+体重<br>
+	<!--form action="/webapp/CalUpdateServlet"-->
+	<input type="TEXT" name="weight"> kg<br>
 	<input type="SUBMIT" value="登録"><br>
 </form>
 

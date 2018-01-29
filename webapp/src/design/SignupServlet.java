@@ -55,12 +55,14 @@ public class SignupServlet extends HttpServlet {
 		 int x = ub.insertRecord();
 		 //登録成功
 		 if (x == 1) {
-			 dispatcher = request.getRequestDispatcher("mypage.jsp");
+			 dispatcher = request.getRequestDispatcher("MyPage.jsp");
 		 //ID重複
 		 }else if(x == -1){
+			 ub.setFailure(1);
 			 dispatcher = request.getRequestDispatcher("Signup-failed.jsp");
 		 //その他のエラー
 		 }else{
+			 ub.setFailure(2);
 			 dispatcher = request.getRequestDispatcher("Signup-failed.jsp");
 		 }
 		
