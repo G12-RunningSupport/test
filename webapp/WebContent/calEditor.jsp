@@ -33,7 +33,7 @@ userInfoBean ub = (userInfoBean)se.getAttribute("userBean");%>
 	<input type="SUBMIT" value="登録"><br>
 </form>
 
-<a href="MyPageSelectServlet">戻る</a>
+<a href="MyPageSelectServlet.java">戻る</a>
 
 </body>
 </html>

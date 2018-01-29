@@ -25,17 +25,19 @@ HttpSession se = request.getSession();
     <TD>日付</TD>
 	</TR>
 	<%	
-	ArrayList<routeBean> list = (ArrayList<routeBean>)request.getAttribute("routeList"); 
+	routeBean rb = new routeBean();
+	 ArrayList<routeBean> list = rb.getRank();
+	/*ArrayList<routeBean> list = (ArrayList<routeBean>)request.getAttribute("routeList")*/; 
    for (int i=0; i<list.size(); i++) {
-	   routeBean rb = (routeBean)list.get(i);
+	   routeBean rb2 = (routeBean)list.get(i);
 	%>
 	
 	
 	
 	<TR>
-    <TD><%=i+1  %>位  <%=rb.getId() %></TD>
-    <TD><%=rb.getDistance() %>km</TD>
-    <TD><%=rb.getDate() %></TD>
+    <TD><%=i+1  %>位  <%=rb2.getId() %></TD>
+    <TD><%=rb2.getDistance() %>km</TD>
+    <TD><%=rb2.getDate() %></TD>
 	</TR>  
 	
 	<%

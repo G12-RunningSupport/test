@@ -44,9 +44,9 @@ public class CheckIdServlet extends HttpServlet {
 		
 		 
 		 //ランキングの要素をセット
-		 routeBean rb = new routeBean();
+		 /*routeBean rb = new routeBean();
 		 ArrayList<routeBean> list = rb.getRank();
-		 
+		 */
 		 // containメソッドでUserIdがDBに登録されているか確認する
 		 if(ub.containId(id)){
 			 //beanの全要素をセット
@@ -65,7 +65,7 @@ public class CheckIdServlet extends HttpServlet {
 		 // JSP側 ではキーワード "studentBean" をつかってインスタンスを取り出す
 		 //  二重引用符の中の単語はクラス名である必要はなく、自分で自由に決めてよい
 		 request.setAttribute("userBean", ub);
-		 request.setAttribute("routeList", list);
+		 //request.setAttribute("routeList", list);
 
 		 // 最後に JSP へ処理を遷移させる
 		 dispatcher.forward(request,response);

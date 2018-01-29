@@ -57,7 +57,7 @@ public class CalUpdateServlet extends HttpServlet {
 		//ページ振り分け
 		//if(cb.insertRecord())
 			cb.insertRecord();
-			dispatcher = request.getRequestDispatcher("MyPage.jsp");
+			dispatcher = request.getRequestDispatcher("MyPageSelectServlet.java");
 		/*else
 			dispatcher = request.getRequestDispatcher("calDB-failed.jsp");
 		*/
