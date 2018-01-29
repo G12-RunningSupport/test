@@ -23,6 +23,9 @@
 			case 2:
 				errmes = new String("このIDは既に使用されています");
 				break;
+			case 3:
+				errmes = new String("未入力の欄があります");
+				break;
 			default:
 				errmes = new String("tt");
 		}
