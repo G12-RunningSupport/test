@@ -1,6 +1,7 @@
 package design;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -30,6 +31,10 @@ public class SignupServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher;
 
+		 //ランキングの要素をセット
+		 routeBean rb = new routeBean();
+		 ArrayList<routeBean> list = rb.getRank();
+		 
 		//  ユーザ情報を処理する JavaBean をつくる
 		userInfoBean ub = new userInfoBean();
 		
@@ -85,7 +90,7 @@ public class SignupServlet extends HttpServlet {
 			 // JSP側 ではキーワード "studentBean" をつかってインスタンスを取り出す
 			 //  二重引用符の中の単語はクラス名である必要はなく、自分で自由に決めてよい
 			 request.setAttribute("userBean", ub);
-		 
+			 request.setAttribute("routeList", list);
 		 }
 
 		 // 最後に JSP へ処理を遷移させる
