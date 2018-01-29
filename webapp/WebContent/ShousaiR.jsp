@@ -12,13 +12,13 @@
 <body>
 <h1>ルート詳細データ</h1>
 
-<TABLE>
+<TABLE width="70%" height="5%">
     <TR>
-    <TD>日付</TD>
-    <TD>回数</TD>
-    <TD>走行距離</TD>
-    <TD>スタート時間</TD>
-    <TD>フィニッシュ時間</TD>
+    <TD align="center" valign="middle">日付</TD>
+    <TD align="center" valign="middle">回数</TD>
+    <TD align="center" valign="middle">走行距離</TD>
+    <TD align="center" valign="middle">スタート時間</TD>
+    <TD align="center" valign="middle">フィニッシュ時間</TD>
 	</TR>
 	
 	<%
@@ -28,11 +28,11 @@
 	%>
 	
 	<TR>
-    <TD><%=rb.getDate() %></TD>
-    <TD><%=rb.getNo() %>回</TD>
-    <TD><%=rb.getDistance() %>km</TD>
-    <TD><%=rb.getStart() %></TD>
-    <TD><%=rb.getFinish() %></TD>
+    <TD align="center" valign="middle"><%=rb.getDate() %></TD>
+    <TD align="center" valign="middle"><%=rb.getNo() %></TD>
+    <TD align="center" valign="middle"><%=rb.getDistance() %> km</TD>
+    <TD align="center" valign="middle"><%=rb.getStart() %></TD>
+    <TD align="center" valign="middle"><%=rb.getFinish() %></TD>
 	</TR>
 
 	<%
@@ -40,6 +40,7 @@
 	%>
 
 </TABLE>
+<br>
 <a href="MyPageSelectServlet">マイページに戻る</a><br>
 </body>
 </html>

@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="design.*" %>
+<%@ page import="java.util.*" %>
+<%@ page import="design.*" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -10,6 +12,10 @@
 <title>マイページ</title>
 </head>
 <body>
+<%userInfoBean ub = (userInfoBean)request.getAttribute("userBean");
+HttpSession se = request.getSession();
+%>
+	ようこそ<%out.print(ub.getId());%>さん
 ランキング<br>
 
 <TABLE>
@@ -49,7 +55,9 @@
 	<input type="SUBMIT" value="カロリー入力"><br>
 </form>
 -->
+<% session.setAttribute("userBean", ub); 
 
+%>
 <a href="CalSelectServlet">カロリー詳細を表示する</a><br>
 <a href="RouteSelectServlet">ルート詳細を表示する</a><br>
 <a href="calEditor.jsp">カロリー入力</a><br>

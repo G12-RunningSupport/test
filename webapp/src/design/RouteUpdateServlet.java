@@ -35,7 +35,8 @@ public class RouteUpdateServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		//フォームからデータの受け取り
-		String id = request.getParameter("id");
+		userInfoBean ub = (userInfoBean)request.getAttribute("userBean");
+		String id = ub.getId();
 		String date = request.getParameter("date");
 		String no = request.getParameter("no");
 		String distance = request.getParameter("distance");
