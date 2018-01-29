@@ -26,8 +26,8 @@
 	
 	<TR>
     <TD><%=cb.getDate() %></TD>
-    <TD><%=cb.getWeight() %></TD>
-    <TD><%=cb.getCal() %></TD>
+    <TD><%=cb.getWeight() %>kg</TD>
+    <TD><%=cb.getCal() %>kcal</TD>
 	</TR>
 
 	<%
@@ -35,6 +35,6 @@
 	%>
 
 </TABLE>
-<a href="MyPage.jsp">マイページに戻る</a><br>
+<a href="MyPageSelectServlet">マイページに戻る</a><br>
 </body>
 </html>

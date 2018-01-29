@@ -10,7 +10,6 @@
 </head>
 <body>
 
-
 <% 
 	GregorianCalendar cal = new GregorianCalendar();
 	SimpleDateFormat format = new SimpleDateFormat("yyyy年M月d日");
@@ -30,7 +29,7 @@
 	<input type="SUBMIT" value="登録"><br>
 </form>
 
-<a href="MyPage.jsp">戻る</a>
+<a href="MyPageSelectServlet">戻る</a>
 
 </body>
 </html>
