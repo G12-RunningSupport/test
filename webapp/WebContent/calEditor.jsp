@@ -9,7 +9,7 @@
 <title>カロリー入力画面</title>
 </head>
 <body>
-
+あ
 
 <% 
 	GregorianCalendar cal = new GregorianCalendar();
