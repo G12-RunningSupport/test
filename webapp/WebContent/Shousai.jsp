@@ -11,11 +11,11 @@
 <body>
 <h1>詳細データ</h1>
 
-<TABLE>
+<TABLE width="45%" height="5%">
     <TR>
-    <TD>日付</TD>
-    <TD>体重</TD>
-    <TD>摂取カロリー</TD>
+    <TD align="center" valign="middle">日付</TD>
+    <TD align="center" valign="middle">体重</TD>
+    <TD align="center" valign="middle">摂取カロリー</TD>
 	</TR>
 	
 	<%
@@ -25,9 +25,9 @@
 	%>
 	
 	<TR>
-    <TD><%=cb.getDate() %></TD>
-    <TD><%=cb.getWeight() %></TD>
-    <TD><%=cb.getCal() %></TD>
+    <TD align="center" valign="middle"><%=cb.getDate() %></TD>
+    <TD align="right" valign="middle"><%=cb.getWeight()%> kg</TD>
+    <TD align="center" valign="middle"><%=cb.getCal() %> kcal</TD>
 	</TR>
 
 	<%
@@ -35,6 +35,7 @@
 	%>
 
 </TABLE>
+<br>
 <a href="MyPage.jsp">マイページに戻る</a><br>
 </body>
 </html>

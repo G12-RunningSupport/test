@@ -31,7 +31,7 @@ public class CheckIdServlet extends HttpServlet {
 		RequestDispatcher dispatcher;
 
 		//  ユーザ情報を処理する JavaBean をつくる
-		userBean ub = new UserBean();
+		userInfoBean ub = new userInfoBean();
 		
 		// 文字コードを UTF-8 として扱う
 		request.setCharacterEncoding("UTF-8");

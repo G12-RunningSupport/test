@@ -31,7 +31,7 @@ public class SignupServlet extends HttpServlet {
 		RequestDispatcher dispatcher;
 
 		//  ユーザ情報を処理する JavaBean をつくる
-		userBean ub = new UserBean();
+		userInfoBean ub = new userInfoBean();
 		
 		// 文字コードを UTF-8 として扱う
 		request.setCharacterEncoding("UTF-8");
@@ -51,7 +51,6 @@ public class SignupServlet extends HttpServlet {
 		 ub.setBirth(year+"-"+month+"-"+day);
 		 ub.setSex(sex);
 		 ub.setHeight(height);
-		 
 		 //  データベースへの INSERT 処理の実行
 		 int x = ub.insertRecord();
 		 //登録成功

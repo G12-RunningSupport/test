@@ -73,7 +73,7 @@ public class userInfoBean {
 	}
 	//データベースへの追加
 	
-	public boolean insertRecord(){
+	public int insertRecord(){
 		try{
 			Connection con = DBManager.getUserConnection();
 			String sql = "INSERT INTO UserInfo(Id,Birth,Sex,Height) VALUE (?,?,?,?)";
@@ -87,9 +87,9 @@ public class userInfoBean {
 			int count = ps.executeUpdate();
 			ps.close();
 			con.close();
-			if(count>0) return true; else return false;
+			if(count>0) return 1; else return 0;
 		}catch(Exception e){
-			return false;
+			return 0;
 		}
 	}
 	public boolean deleteRecord(){
@@ -135,7 +135,7 @@ public class userInfoBean {
 		
 	}
 	//IDが既に登録済みかの検索
-	public boolean containID(String Id){
+	public boolean containId(String Id){
 		try {
 			Connection con = DBManager.getUserConnection();
 			Statement smt = con.createStatement();
