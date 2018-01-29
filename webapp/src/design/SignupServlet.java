@@ -49,15 +49,9 @@ public class SignupServlet extends HttpServlet {
 		 //setする
 		 ub.setId(id);
 		 ub.setBirth(year+"-"+month+"-"+day);
-		 ub.setSex(sex);
-		 ub.setHeight(height);
-		 //  データベースへの INSERT 処理の実行
-		 int x = ub.insertRecord();
-		 //登録成功
-		 if (x == 1) {
-			 dispatcher = request.getRequestDispatcher("MyPage.jsp");
-		 //ID重複
-		 }else if(x == -1){
+		 ub.setSex(Integer.parseInt(sex));
+		 ub.setHeight(Integer.parseInt(height));
+
 		 //未入力確認
 		 if(id.isEmpty() || year.isEmpty() || month.isEmpty() || day.isEmpty() || sex.isEmpty() || height.isEmpty()){
 			 ub.setFailure(1);

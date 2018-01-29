@@ -44,7 +44,7 @@ public class UserInfoUpdateServlet extends HttpServlet {
 		uib.setSex(Integer.parseInt(sex));
 		uib.setHeight(Integer.parseInt(height));
 		//ページ振り分け
-		if(uib.insertRecord() == 1)
+		if(uib.insertRecord())
 			dispatcher = request.getRequestDispatcher("Signup-success.jsp");
 		else
 			dispatcher = request.getRequestDispatcher("Signup-failed.jsp");

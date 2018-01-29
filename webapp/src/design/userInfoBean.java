@@ -80,7 +80,7 @@ public class userInfoBean {
 	}
 	//データベースへの追加
 	
-	public int insertRecord(){
+	public boolean insertRecord(){
 		try{
 			Connection con = DBManager.getUserConnection();
 			String sql = "INSERT INTO UserInfo(Id,Birth,Sex,Height) VALUE (?,?,?,?)";
@@ -94,9 +94,9 @@ public class userInfoBean {
 			int count = ps.executeUpdate();
 			ps.close();
 			con.close();
-			if(count>0) return 1; else return 0;
+			if(count>0) return true; else return false;
 		}catch(Exception e){
-			return 0;
+			return false;
 		}
 	}
 	public boolean deleteRecord(){
