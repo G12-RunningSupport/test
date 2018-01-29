@@ -9,12 +9,7 @@
 <title>マイページ</title>
 </head>
 <body>
-<%
-   ArrayList<userInfoBean> list = (ArrayList<userInfoBean>)request.getAttribute("userBean");
-   for (int i=0; i<list.size(); i++) {
-	   userInfoBean ub = (userInfoBean)list.get(i);
-
-	%>
+<%userInfoBean ub = (userInfoBean)request.getAttribute("userBean");%>
 	ようこそ<%ub.getId(); %>さん
 ※ランキングを表示<br>
 <br>
@@ -28,7 +23,7 @@
 	<input type="SUBMIT" value="カロリー入力"><br>
 </form>
 -->
-<% request.setAttribute("userBean", ub); }%>
+<% request.setAttribute("userBean", ub); %>
 <a href="CalSelectServlet">カロリー詳細を表示する</a><br>
 <a href="RouteSelectServlet">ルート詳細を表示する</a><br>
 <a href="calEditor.jsp">カロリー入力</a><br>

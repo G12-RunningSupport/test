@@ -37,7 +37,8 @@ public class CalUpdateServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		//フォームからデータの受け取り
-		String id = request.getParameter("id");
+		userInfoBean ub = (userInfoBean)request.getAttribute("userBean");
+		String id = ub.getId();
 		//String date = request.getParameter("date");
 		/*日付の取得*/
 		GregorianCalendar cale = new GregorianCalendar();
@@ -57,7 +58,7 @@ public class CalUpdateServlet extends HttpServlet {
 		/*else
 			dispatcher = request.getRequestDispatcher("calDB-failed.jsp");
 		*/
-		request.setAttribute("calBean", cb);
+		request.setAttribute("userBean", ub);
 		dispatcher.forward(request,response);
 
 	}
