@@ -27,9 +27,9 @@
 	
 	
 	<TR>
-    <TD><%=rb.getId() %></TD>
-    <TD><%=rb.getDistance() %>回</TD>
-    <TD><%=rb.getDate() %>km</TD>
+    <TD><%=i+1  %>位  <%=rb.getId() %></TD>
+    <TD><%=rb.getDistance() %>km</TD>
+    <TD><%=rb.getDate() %></TD>
 	</TR>  
 	
 	<%
