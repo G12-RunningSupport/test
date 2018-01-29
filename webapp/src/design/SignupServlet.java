@@ -31,7 +31,7 @@ public class SignupServlet extends HttpServlet {
 		RequestDispatcher dispatcher;
 
 		//  ユーザ情報を処理する JavaBean をつくる
-		userBean ub = new UserBean();
+		userInfoBean ub = new userInfoBean();
 		
 		// 文字コードを UTF-8 として扱う
 		request.setCharacterEncoding("UTF-8");
@@ -53,13 +53,13 @@ public class SignupServlet extends HttpServlet {
 		 ub.setHeight(height);
 		 
 		 //  データベースへの INSERT 処理の実行
-		 int x = ub.insertRecord();
+		 boolean x = ub.insertRecord();
 		 //登録成功
-		 if (x == 1) {
-			 dispatcher = request.getRequestDispatcher("mypage.jsp");
-		 //ID重複
-		 }else if(x == -1){
-			 dispatcher = request.getRequestDispatcher("Signup-failed.jsp");
+		 if (x == true) {
+			 dispatcher = request.getRequestDispatcher("MyPage.jsp");
+//		 //ID重複
+//		 }else if(x == false){
+//			 dispatcher = request.getRequestDispatcher("Signup-failed.jsp");
 		 //その他のエラー
 		 }else{
 			 dispatcher = request.getRequestDispatcher("Signup-failed.jsp");

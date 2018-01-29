@@ -31,7 +31,7 @@ public class CheckIdServlet extends HttpServlet {
 		RequestDispatcher dispatcher;
 
 		//  ユーザ情報を処理する JavaBean をつくる
-		userBean ub = new UserBean();
+		userInfoBean ub = new userInfoBean();
 		
 		// 文字コードを UTF-8 として扱う
 		request.setCharacterEncoding("UTF-8");
@@ -42,11 +42,11 @@ public class CheckIdServlet extends HttpServlet {
 		 String id = request.getParameter("UserId");
 		
 		 // containメソッドでUserIdがDBに登録されているか確認する
-		 if(ub.containId(id)){
+		 if(ub.containID(id)){
 			 //beanの全要素をセット
 			 ub.setAll(id);
 			 // マイページをディスパッチする
-			 dispatcher = request.getRequestDispatcher("mypage.jsp");
+			 dispatcher = request.getRequestDispatcher("MyPage.jsp");
 		 }else{
 			 //認証エラーページをディスパッチ
 			 dispatcher = request.getRequestDispatcher("idFailed.jsp");
