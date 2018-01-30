@@ -1,0 +1,103 @@
+@CHARSET "UTF-8";
+body{
+	background: #fcfcfc;
+	font-family: font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans',
+				  'ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic';
+}
+
+.title{
+	width: 100%;
+}
+.phone{
+	width: 35%;
+	position: absolute;
+   	top: 0;
+   	right: 50%;
+   	margin: 100px auto;
+}
+
+.bar{
+	width: 100%;
+	height: 12%;
+	position: absolute;
+   	top: 0;
+   	left: 0;
+}
+.square_btn{
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #1297e6;/*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+    height: 4%;
+    width: 60%;
+    margin: 10px auto;
+}
+.square_btn:active {/*ボタンを押したとき*/
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
+}
+
+.square_btn1{
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #1297e6;/*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+    height: 100%;
+    width: 71%;
+    margin: 30px auto;
+}
+.square_btn1:active {/*ボタンを押したとき*/
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
+}
+
+.textbox{
+	position: absolute;
+   left: 25%;
+   width: 50%;
+}
+
+#example{
+	position: relative;
+   	padding:0;/*要素内の余白は消す*/
+}
+#example span{/*文字*/
+     position: absolute;
+     top: 0;
+     left: 50%;
+     /*以下装飾*/
+     color: white;
+     /*background: #74c1f8;*/
+     padding:0 2px;
+     /*line-height:1.5em;*/
+}
+div{
+	
+}
+span{
+	display: inline-block;
+	background: #ffffff;
+	/*width: 250px;*/
+	width: 22%;
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #cccccc;
+	margin: 140px auto;
+}
+h1 {
+color: #000000;/*文字色*/
+padding: 0.5em 0;/*上下の余白*/
+border-top: solid 3px #000000;/*上線*/
+border-bottom: solid 3px #000000;/*下線*/
+}
+
