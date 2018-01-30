@@ -94,6 +94,16 @@ span{
 	border: 1px solid #cccccc;
 	margin: 140px auto;
 }
+span1{
+	display: inline-block;
+	background: #ffffff;
+	/*width: 250px;*/
+	width: 40%;
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #cccccc;
+	margin: 140px auto;
+}
 h1 {
 color: #000000;/*文字色*/
 padding: 0.5em 0;/*上下の余白*/
