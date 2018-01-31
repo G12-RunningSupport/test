@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class RouteSelectServlet
@@ -32,7 +33,9 @@ public class RouteSelectServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		RequestDispatcher dispatcher;
-		
+		HttpSession se = request.getSession();
+		userInfoBean ub = (userInfoBean)se.getAttribute("userBean");
+
 		routeBean rb = new routeBean();
 		ArrayList<routeBean> list = rb.getRecords();
 		//結果ページを振り分け
@@ -43,6 +46,7 @@ public class RouteSelectServlet extends HttpServlet {
 		
 		//リストのインスタンスを遷移先へ渡す
 		request.setAttribute("routeList", list);
+		se.setAttribute("userBean",ub);
 		//処理を遷移
 		dispatcher.forward(request,response);
 	}

@@ -2,6 +2,8 @@ package design;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import javax.servlet.RequestDispatcher;
@@ -38,14 +40,19 @@ public class CalUpdateServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		//データの受け取り
-		HttpSession se = request.getSession();
+		HttpSession se =request.getSession();
 		userInfoBean ub = (userInfoBean)se.getAttribute("userBean");
 		String id = ub.getId();
 		//String date = request.getParameter("date");
-		/*日付の取得*/
+		//日付の取得
 		GregorianCalendar cale = new GregorianCalendar();
-		SimpleDateFormat format = new SimpleDateFormat("yyyy年M月d日");
-		String date = format.format(cale.getTime());
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		String date = format.format(cale.getTime());/*
+		Calendar cal1 = Calendar.getInstance();
+		int y = cal1.get(Calendar.YEAR);
+		int m = cal1.get(Calendar.MONTH);
+		int d = cal1.get(Calendar.DATE);
+		String calstr = y+"-"+m+"-"+d;*/
 		//フォームからデータ受け取り
 		String weight = request.getParameter("weight");
 		String cal = request.getParameter("number");
@@ -54,14 +61,11 @@ public class CalUpdateServlet extends HttpServlet {
 		cb.setDate(date);
 		cb.setWeight(Float.parseFloat(weight));
 		cb.setCal(Integer.parseInt(cal));
-		//ページ振り分け
-		//if(cb.insertRecord())
-			cb.insertRecord();
-			dispatcher = request.getRequestDispatcher("MyPageSelectServlet.java");
-		/*else
-			dispatcher = request.getRequestDispatcher("calDB-failed.jsp");
-		*/
-		request.setAttribute("userBean", ub);
+		//DBへ登録
+		cb.insertRecord();
+		
+		dispatcher = request.getRequestDispatcher("MyPage.jsp");
+		se.setAttribute("userBean", ub);
 		dispatcher.forward(request,response);
 
 	}
