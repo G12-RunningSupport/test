@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class RouteUpdateServlet
@@ -31,7 +32,9 @@ public class RouteUpdateServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		RequestDispatcher dispatcher;
-		routeBean rb = new routeBean();
+		routeBean rb = new routeBean();		
+		// ubをセッションで渡すため
+		HttpSession se = request.getSession();
 		
 		request.setCharacterEncoding("UTF-8");
 		//フォームからデータの受け取り
@@ -40,8 +43,8 @@ public class RouteUpdateServlet extends HttpServlet {
 		String date = request.getParameter("date");
 		String no = request.getParameter("no");
 		String distance = request.getParameter("distance");
-		String start = request.getParameter("start");
-		String finish = request.getParameter("finish");
+		String start = request.getParameter("startTime");
+		String finish = request.getParameter("finishTime");
 		//セット
 		rb.setId(id);
 		rb.setDate(date);
