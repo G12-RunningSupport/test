@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class SignupServlet
@@ -37,7 +38,7 @@ public class SignupServlet extends HttpServlet {
 		 
 		//  ユーザ情報を処理する JavaBean をつくる
 		userInfoBean ub = new userInfoBean();
-		
+		HttpSession se = request.getSession();
 		// 文字コードを UTF-8 として扱う
 		request.setCharacterEncoding("UTF-8");
 		
@@ -89,7 +90,7 @@ public class SignupServlet extends HttpServlet {
 			 // 次に遷移する JSP に渡す
 			 // JSP側 ではキーワード "studentBean" をつかってインスタンスを取り出す
 			 //  二重引用符の中の単語はクラス名である必要はなく、自分で自由に決めてよい
-			 request.setAttribute("userBean", ub);
+			 se.setAttribute("userBean", ub);
 			 //request.setAttribute("routeList", list);
 		 }
 

@@ -47,12 +47,8 @@ public class CalUpdateServlet extends HttpServlet {
 		//日付の取得
 		GregorianCalendar cale = new GregorianCalendar();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		String date = format.format(cale.getTime());/*
-		Calendar cal1 = Calendar.getInstance();
-		int y = cal1.get(Calendar.YEAR);
-		int m = cal1.get(Calendar.MONTH);
-		int d = cal1.get(Calendar.DATE);
-		String calstr = y+"-"+m+"-"+d;*/
+		String date = format.format(cale.getTime());
+		
 		//フォームからデータ受け取り
 		String weight = request.getParameter("weight");
 		String cal = request.getParameter("number");
