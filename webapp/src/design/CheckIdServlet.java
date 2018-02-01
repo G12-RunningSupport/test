@@ -54,7 +54,7 @@ public class CheckIdServlet extends HttpServlet {
 			 //beanの全要素をセット
 			 ub.setAll(id);
 			 // マイページをディスパッチする
-			 dispatcher = request.getRequestDispatcher("MyPage.java");
+			 dispatcher = request.getRequestDispatcher("MyPage.jsp");
 		 }else{
 			 //認証エラーページをディスパッチ
 			 dispatcher = request.getRequestDispatcher("idFailed.jsp");

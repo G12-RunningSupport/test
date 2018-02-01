@@ -13,16 +13,13 @@ import java.sql.DriverManager;
 public class DBManager {
 
 	// 以下は仮想マシンの MySQL データベースの設定である
-	/*private static String url = "jdbc:mysql://localhost:3306/db_dev";
+	private static String url = "jdbc:mysql://localhost:3306/db_dev";
 	private static String user = "dev";
 	private static String password = "endeza";//*/
 	// 以下はサーバマシンの MySQL データベースの設定である
 //	private static String url = "jdbc:mysql://192.168.1.112:3306/db_tomcat";
 //	private static String user = "tomcat";
 //	private static String password = "group12";
-	private static String url = "jdbc:mysql://192.168.1.112:3306/db_tomcat";
-	private static String user = "tomcat";
-	private static String password = "group12";
 	
 	// サーバマシンの MySQL データベースに切り替える場合には以下のようにする
 	// taro は自分のユーザ名にする。班の作品のデータベースを使う場合は taro を tomcat に変更する

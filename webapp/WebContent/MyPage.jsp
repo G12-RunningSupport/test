@@ -16,7 +16,7 @@
 HttpSession se = request.getSession();
 userInfoBean ub = (userInfoBean)se.getAttribute("userBean");
 %>
-	ようこそ<%out.print(ub.getId());%>さん
+	ようこそ<%out.print(ub.getId());%>さん<br>
 ランキング<br>
 
 <TABLE>
