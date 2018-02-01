@@ -5,10 +5,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>認証失敗</title>
+
+<link rel="stylesheet" type="text/css" href="index.css" madia="all">
+
 </head>
 <body>
-	IDが違います
+<img src="./bar.jpg" class="bar">
+<div>
+<span>
+	IDが違います<br>
 	
-	<a href="index.html">トップに戻る</a>
+	<a href="index.html" class="square_btn">トップに戻る</a>
+</span>
+</div>
 </body>
 </html>

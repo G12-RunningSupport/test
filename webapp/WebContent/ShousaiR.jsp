@@ -10,6 +10,9 @@
 <title>ルート詳細データ</title>
 </head>
 <body>
+<%
+HttpSession se = request.getSession();
+userInfoBean ub = (userInfoBean)se.getAttribute("userBean");%>
 <h1>ルート詳細データ</h1>
 
 <TABLE width="70%" height="5%">
@@ -26,7 +29,6 @@
    for (int i=0; i<list.size(); i++) {
 	   routeBean rb = (routeBean)list.get(i);
 	%>
-	
 	<TR>
     <TD align="center" valign="middle"><%=rb.getDate() %></TD>
     <TD align="center" valign="middle"><%=rb.getNo() %></TD>
@@ -41,6 +43,7 @@
 
 </TABLE>
 <br>
-<a href="MyPageSelectServlet">マイページに戻る</a><br>
+	<%se.setAttribute("userBean",ub); %>
+<a href="MyPage.jsp">マイページに戻る</a><br>
 </body>
 </html>

@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class RouteSelectServlet
@@ -33,6 +34,9 @@ public class MyPageSelectServlet extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		RequestDispatcher dispatcher;
 		
+		//HttpSession se = request.getSession();
+		userInfoBean ub = (userInfoBean)request.getAttribute("userBean");
+		
 		routeBean rb = new routeBean();
 		ArrayList<routeBean> list = rb.getRank();
 		//結果ページを振り分け
@@ -43,6 +47,7 @@ public class MyPageSelectServlet extends HttpServlet {
 		
 		//リストのインスタンスを遷移先へ渡す
 		request.setAttribute("routeList", list);
+		request.setAttribute("userInfo", ub);
 		//処理を遷移
 		dispatcher.forward(request,response);
 	}

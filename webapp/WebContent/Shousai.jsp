@@ -19,7 +19,9 @@
 	</TR>
 	
 	<%
-	userInfoBean ub = (userInfoBean)request.getAttribute("userBean");
+	HttpSession se = request.getSession();
+	userInfoBean ub = (userInfoBean)se.getAttribute("userBean");
+	//userInfoBean ub = (userInfoBean)request.getAttribute("userBean");
    ArrayList<calBean> list = (ArrayList<calBean>)request.getAttribute("calList");
    for (int i=0; i<list.size(); i++) {
 	   calBean cb = (calBean)list.get(i);
@@ -34,7 +36,8 @@
 	<%}%>
 </TABLE>
 <br>
-<% 	request.setAttribute("userBean",ub);%>
-<a href="MyPageSelectServlet">マイページに戻る</a><br>
+<%se.setAttribute("userBean",ub); %>
+<%//request.setAttribute("userBean",ub);%>
+<a href="MyPage.jsp">マイページに戻る</a><br>
 </body>
 </html>
