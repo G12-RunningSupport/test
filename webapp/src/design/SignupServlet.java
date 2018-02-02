@@ -1,7 +1,6 @@
 package design;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -78,10 +77,7 @@ public class SignupServlet extends HttpServlet {
 			 //登録成功
 			 if (x == true) {
 				 dispatcher = request.getRequestDispatcher("MyPage.jsp");
-//			 //ID重複
-//			 }else if(x == false){
-//				 dispatcher = request.getRequestDispatcher("Signup-failed.jsp");
-				 //その他のエラー
+			//その他のエラー
 			 }else{
 				 dispatcher = request.getRequestDispatcher("Signup-failed.jsp");
 			 }
