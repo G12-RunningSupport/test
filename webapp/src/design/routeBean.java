@@ -99,12 +99,14 @@ public class routeBean {
 		}		
 	}
 	//一覧の取得
-	public ArrayList<routeBean> getRecords() {
+	public ArrayList<routeBean> getRecords(String id) {
 		ArrayList<routeBean> list = new ArrayList<routeBean>();
 		try{
 			Connection con = DBManager.getUserConnection();
-			Statement smt = con.createStatement();
-			ResultSet rs = smt.executeQuery("SELECT* FROM Route");
+			String sql = "SELECT* FROM Route WHERE Id=?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1,id);
+			ResultSet rs = ps.executeQuery();
 			//SELECT文からのデータを1行ずつ取得して格納していく
 			while(rs.next()){
 				routeBean tmp = new routeBean();
@@ -117,7 +119,7 @@ public class routeBean {
 				list.add(tmp);
 			}
 				rs.close();
-				smt.close();
+				ps.close();
 				con.close();
 				
 				return list;

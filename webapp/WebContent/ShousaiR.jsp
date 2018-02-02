@@ -18,7 +18,7 @@ userInfoBean ub = (userInfoBean)se.getAttribute("userBean");%>
 <TABLE width="70%" height="5%">
     <TR>
     <TD align="center" valign="middle">日付</TD>
-    <TD align="center" valign="middle">回数</TD>
+ <% //   <TD align="center" valign="middle">回数</TD>%>
     <TD align="center" valign="middle">走行距離</TD>
     <TD align="center" valign="middle">スタート時間</TD>
     <TD align="center" valign="middle">フィニッシュ時間</TD>
@@ -31,7 +31,7 @@ userInfoBean ub = (userInfoBean)se.getAttribute("userBean");%>
 	%>
 	<TR>
     <TD align="center" valign="middle"><%=rb.getDate() %></TD>
-    <TD align="center" valign="middle"><%=rb.getNo() %></TD>
+    <%//<TD align="center" valign="middle"><%=rb.getNo() %></TD>%>
     <TD align="center" valign="middle"><%=rb.getDistance() %> km</TD>
     <TD align="center" valign="middle"><%=rb.getStart() %></TD>
     <TD align="center" valign="middle"><%=rb.getFinish() %></TD>
