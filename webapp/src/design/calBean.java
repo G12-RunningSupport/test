@@ -114,6 +114,24 @@ public class calBean {
 		}
 		
 	}
+	//ある日の体重を取得
+	public float getOneWeight(){		
+		try{
+			Connection con = DBManager.getUserConnection();
+			Statement smt = con.createStatement();
+	
+			String sql = "SELECT Weight FROM Cal WHERE Id = ? and Date = ?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, this.getId());
+			ps.setString(2, this.getDate());
+			ResultSet rs = smt.executeQuery(sql);
+			
+			rs.next();
+			return rs.getFloat("Weight");
+		}catch(Exception e){
+			return -1;
+		}
+	}
 	/*最新の体重を取得
 	public float getNewWeight(){		
 		try{

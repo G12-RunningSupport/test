@@ -153,7 +153,6 @@ public class routeBean {
 		}catch(Exception e){
 			return null;
 		}
-		
 	}
 	//最新Noの取得
 	public int getMaxNo(String id) {
@@ -161,25 +160,15 @@ public class routeBean {
 		try{
 			Connection con = DBManager.getUserConnection();
 			Statement smt = con.createStatement();
-			//ResultSet rs = smt.executeQuery("SELECT* FROM Route WHERE Id = "+id+" ORDER BY No");
-			
 			String sql = "SELECT* FROM Route WHERE Id = ? ORDER BY No DESC";
 			PreparedStatement ps = con.prepareStatement(sql);
 			//値を該当位置にセット
 			ps.setString(1, id);
 			//sqlの実行
 			ResultSet rs = ps.executeQuery();
-			
-			
 			//SELECT文からのデータを1行だけ取得
 			rs.next();
 			int ret = rs.getInt("No");
-//				while(rs.next()){
-//					routeBean tmp = new routeBean();
-//					tmp.setNo(rs.getInt("No"));
-//					tmp.setDistance(rs.getInt("Distance"));
-//					list.add(tmp);
-//				}
 			ps.close();
 			rs.close();
 			smt.close();
@@ -189,7 +178,28 @@ public class routeBean {
 		}catch(Exception e){
 			return -1;
 		}
+	}
+	
+	//消費カロリーの計算
+	public float calculateCal(){
+		calBean cb =new calBean();
+		cb.setId(this.getId());
+		cb.setDate(this.getDate());
+		double cof = 20./19.;
+		double time,start,finish,METs;
+		//時間の導出
+		String[] tmp = this.getStart().split(":"); 
+		start = Double.parseDouble(tmp[0])+Double.parseDouble(tmp[1])/60.;
+		this.getFinish().split(":"); 
+		finish = Double.parseDouble(tmp[0])+Double.parseDouble(tmp[1])/60.;
+		if(finish<start){
+			time = 24.-start+finish;
+		}else{
+			time = finish-start;
+		}
+		METs = this.getDistance()/time*cof;
 		
+		return (float)(time*1.05*((double)cb.getOneWeight())*METs);
 	}
 	
 }
