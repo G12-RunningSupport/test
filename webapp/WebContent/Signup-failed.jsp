@@ -16,12 +16,12 @@
 <body>
 	<H1>Running Suport</H1>
 	<h2>新規ユーザー登録</h2>
-	<% userInfoBean ub = (userInfoBean)request.getAttribute("userBrean"); %>
+	<% 	userInfoBean ub = (userInfoBean)request.getAttribute("userBrean"); %>
 	<font color="red">
 	<% 	String errmes = new String("testtt");
 	 	userInfoBean userBean = (userInfoBean)request.getAttribute("userBean");
 		//String errmes;
-		switch(userBean.getFailure()){
+		switch(ub.getFailure()){
 			case 1:
 				errmes = new String("ユーザー登録を完了できませんでした");
 				break;
