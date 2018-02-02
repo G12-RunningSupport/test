@@ -1,3 +1,9 @@
+<!-- 
+使用しない
+
+現行版はhtmltest.jsp
+ -->
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,7 +12,7 @@
     <title>Directions service</title>
     <style>
       #map {
-        height: 100%;
+        height: 80%;
       }
       html, body {
         height: 100%;
@@ -33,11 +39,20 @@
     出発地:<input id="start" type="text" /><br/>
     到着地:<input id="end" type="text" /><br/> 
     <input type="button" value="検索" onclick="calculateAndDisplayRoute(start, end)" /><br/>
-  	<form method="GET" action="/webapp/">
-    	スタート時間:<input id="startTime" type="text" >　フィニッシュ時間:<input id="finishTime" type="text"></br>
-    	入力例）17:00 ＊半角英数字
+  	<form method="GET" action="/webapp/RouteUpdateServlet">
+  		<div id="date"></div>
+    	スタート時間:<input name="startTime" type="text" value="9:00" >　フィニッシュ時間:<input name="finishTime" type="text" value="13:00">　　入力例）17:00 ※半角英数字<br>
     	<div id=dis></div>
+    	<input type="submit" value="確定" class="square_btn1">
     </form>
+	<script>
+  		var hiduke = new Date();
+  		var year = hiduke.getFullYear();
+  		var month = hiduke.getMonth()+1;
+  		var day = hiduke.getDate();
+  		document.getElementById("date").innerHTML ="日付:<input name=\"date\" type=\"text\" value=\""+year+"-"+month+"-"+day+"\" 　入力例）2018-1-11 ※半角英数字/>";
+  	</script>
+    
     <!-- p id=res></p -->
     <script>
       function initMap() {
@@ -65,7 +80,7 @@
           if (status === 'OK') {
             directionsDisplay.setDirections(response);
         	/*document.getElementById("res").innerHTML = JSON.stringify(response.routes[0].legs[0]);*/
-        	document.getElementById("dis").innerHTML = "総距離＝<input id=\"distance\" type=\"text\" value=\""+response.routes[0].legs[0].distance.text+"\" readonly/>";
+        	document.getElementById("dis").innerHTML = "総距離＝<input name=\"distance\" type=\"text\" value=\""+response.routes[0].legs[0].distance.text+"\" readonly/>";
           } else {
             window.alert('Directions request failed due to ' + status);
           }

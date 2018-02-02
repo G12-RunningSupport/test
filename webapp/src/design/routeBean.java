@@ -128,33 +128,68 @@ public class routeBean {
 	}
 	
 	//ランキングの取得
-		public ArrayList<routeBean> getRank() {
-			ArrayList<routeBean> list = new ArrayList<routeBean>();
-			try{
-				Connection con = DBManager.getUserConnection();
-				Statement smt = con.createStatement();
-				ResultSet rs = smt.executeQuery("SELECT* FROM Route ORDER BY Distance");
-				//SELECT文からのデータを1行ずつ取得して格納していく
-				while(rs.next()){
-					routeBean tmp = new routeBean();
-					tmp.setId(rs.getString("Id"));
-					tmp.setDate(rs.getString("Date"));
-					//tmp.setNo(rs.getInt("No"));
-					tmp.setDistance(rs.getInt("Distance"));
-					//tmp.setStart(rs.getString("Start"));
-					//tmp.setFinish(rs.getString("Finish"));
-					list.add(tmp);
-				}
-					rs.close();
-					smt.close();
-					con.close();
-					
-					return list;
-			}catch(Exception e){
-				return null;
+	public ArrayList<routeBean> getRank() {
+		ArrayList<routeBean> list = new ArrayList<routeBean>();
+		try{
+			Connection con = DBManager.getUserConnection();
+			Statement smt = con.createStatement();
+			ResultSet rs = smt.executeQuery("SELECT* FROM Route ORDER BY Distance DESC");
+			//SELECT文からのデータを1行ずつ取得して格納していく
+			while(rs.next()){
+				routeBean tmp = new routeBean();
+				tmp.setId(rs.getString("Id"));
+				tmp.setDate(rs.getString("Date"));
+				//tmp.setNo(rs.getInt("No"));
+				tmp.setDistance(rs.getInt("Distance"));
+				//tmp.setStart(rs.getString("Start"));
+				//tmp.setFinish(rs.getString("Finish"));
+				list.add(tmp);
 			}
-			
+				rs.close();
+				smt.close();
+				con.close();
+				
+				return list;
+		}catch(Exception e){
+			return null;
 		}
-	
+		
+	}
+	//最新Noの取得
+	public int getMaxNo(String id) {
+//			ArrayList<routeBean> list = new ArrayList<routeBean>();
+		try{
+			Connection con = DBManager.getUserConnection();
+			Statement smt = con.createStatement();
+			//ResultSet rs = smt.executeQuery("SELECT* FROM Route WHERE Id = "+id+" ORDER BY No");
+			
+			String sql = "SELECT* FROM Route WHERE Id = ? ORDER BY No DESC";
+			PreparedStatement ps = con.prepareStatement(sql);
+			//値を該当位置にセット
+			ps.setString(1, id);
+			//sqlの実行
+			ResultSet rs = ps.executeQuery();
+			
+			
+			//SELECT文からのデータを1行だけ取得
+			rs.next();
+			int ret = rs.getInt("No");
+//				while(rs.next()){
+//					routeBean tmp = new routeBean();
+//					tmp.setNo(rs.getInt("No"));
+//					tmp.setDistance(rs.getInt("Distance"));
+//					list.add(tmp);
+//				}
+			ps.close();
+			rs.close();
+			smt.close();
+			con.close();
+			
+			return ret;
+		}catch(Exception e){
+			return -1;
+		}
+		
+	}
 	
 }
