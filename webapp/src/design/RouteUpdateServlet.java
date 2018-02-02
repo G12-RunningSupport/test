@@ -32,29 +32,33 @@ public class RouteUpdateServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		RequestDispatcher dispatcher;
-		routeBean rb = new routeBean();		
-		// ubをセッションで渡すため
+		routeBean rb = new routeBean();	
 		HttpSession se = request.getSession();
-		
+		userInfoBean ub = (userInfoBean)se.getAttribute("userBean");
 		request.setCharacterEncoding("UTF-8");
+		
 		//フォームからデータの受け取り
-		userInfoBean ub = (userInfoBean)request.getAttribute("userBean");
+//		userInfoBean ub = (userInfoBean)request.getAttribute("userBean");
+//		String id = "test-error";
+//		if(ub!=null){
+//			id = ub.getId();
+//		}
 		String id = ub.getId();
 		String date = request.getParameter("date");
-		String no = request.getParameter("no");
-		String distance = request.getParameter("distance");
-		String start = request.getParameter("startTime");
-		String finish = request.getParameter("finishTime");
+		int no = rb.getMaxNo(id);
+		String distance = request.getParameter("distance").replaceFirst(" km","");
+		String start = request.getParameter("startTime")+":00";
+		String finish = request.getParameter("finishTime")+":00";
 		//セット
 		rb.setId(id);
 		rb.setDate(date);
-		rb.setNo(Integer.parseInt(no));
-		rb.setDistance(Integer.parseInt(distance));
+		rb.setNo(no+1);
+		rb.setDistance((int)Float.parseFloat(distance));
 		rb.setStart(start);
 		rb.setFinish(finish);
 		//ページ振り分け
 		if(rb.insertRecord())
-			dispatcher = request.getRequestDispatcher("routeDB-success.jsp");
+			dispatcher = request.getRequestDispatcher("MyPage.jsp");
 		else
 			dispatcher = request.getRequestDispatcher("routeDB-failed.jsp");
 		
