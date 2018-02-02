@@ -37,7 +37,7 @@ public class RouteSelectServlet extends HttpServlet {
 		userInfoBean ub = (userInfoBean)se.getAttribute("userBean");
 
 		routeBean rb = new routeBean();
-		ArrayList<routeBean> list = rb.getRecords();
+		ArrayList<routeBean> list = rb.getRecords(ub.getId());
 		//結果ページを振り分け
 		//if(!list.isEmpty())
 			dispatcher = request.getRequestDispatcher("ShousaiR.jsp");
