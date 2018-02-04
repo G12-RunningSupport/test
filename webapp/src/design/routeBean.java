@@ -183,16 +183,16 @@ public class routeBean {
 	}
 	
 	//消費カロリーの計算
-	public float calculateCal(){
+	public double calculateCal(){
 		calBean cb =new calBean();
 		cb.setId(this.getId());
 		cb.setDate(this.getDate());
-		double cof = 20./19.;
+		double cof = 20.0 / 19.0;
 		double time,start,finish,METs;
 		//時間の導出
 		String[] tmp = this.getStart().split(":"); 
 		start = Double.parseDouble(tmp[0])+Double.parseDouble(tmp[1])/60.;
-		this.getFinish().split(":"); 
+		tmp=this.getFinish().split(":"); 
 		finish = Double.parseDouble(tmp[0])+Double.parseDouble(tmp[1])/60.;
 		if(finish<start){
 			time = 24.-start+finish;
@@ -201,7 +201,13 @@ public class routeBean {
 		}
 		METs = this.getDistance()/time*cof;
 		
-		return (float)(time*1.05*((double)cb.getOneWeight())*METs);
+//		if((float)(time*1.05*((double)cb.getOneWeight())*METs)==0){
+//			return (float)(time*1.05*((double)cb.getOneWeight())*METs);
+//		}else{
+//			return (float)-1.0;
+//		}
+		return time*1.05*((double)cb.getOneWeight())*METs;
+		//return (double)cb.getOneWeight();
 	}
 	
 }
