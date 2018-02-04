@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class userInfoBean {
 	private String Id;
@@ -162,5 +163,14 @@ public class userInfoBean {
 		} catch (Exception e) {
 			return false;
 		}
+	}
+	//最新体重の取得
+	public int getNowWheight(){
+		calBean cb = new calBean();
+		Calendar cl = Calendar.getInstance();
+		cb.setId(this.getId());
+		cb.setDate(String.valueOf(cl.get(Calendar.YEAR))+"-"+String.valueOf(cl.get(Calendar.MONTH)+1)+"-"+String.valueOf(cl.get(Calendar.DATE)));
+		
+		return (int)cb.getOneWeight();
 	}
 }

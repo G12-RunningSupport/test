@@ -15,10 +15,21 @@
 <%//userInfoBean ub = (userInfoBean)request.getAttribute("userBean");
 HttpSession se = request.getSession();
 userInfoBean ub = (userInfoBean)se.getAttribute("userBean");
+int hei = ub.getHeight();
 %>
-	ようこそ<%out.print(ub.getId());%>さん<br>
-ランキング<br>
-
+	ようこそ<%out.print(ub.getId());%>さん<br><br>
+	
+	目標体重：<%= hei*hei*22/10000 %> kg　目標BMI：22<br>
+	現在体重：<% int wei=ub.getNowWheight();
+				if(wei != -1){
+					out.print(wei+" kg　現在BMI："+(wei*10000/hei/hei));
+				}else{
+					out.print("まだ登録されていません");
+				}
+	%><br>
+	<br>
+	
+	[ランキング]<br>
 <TABLE>
 	<TR>
     <TD>ID</TD>
@@ -32,9 +43,7 @@ userInfoBean ub = (userInfoBean)se.getAttribute("userBean");
    for (int i=0; i<list.size(); i++) {
 	   routeBean rb2 = (routeBean)list.get(i);
 	%>
-	
-	
-	
+
 	<TR>
     <TD><%=i+1  %>位  <%=rb2.getId() %></TD>
     <TD><%=rb2.getDistance() %>km</TD>
