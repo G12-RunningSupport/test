@@ -120,14 +120,19 @@ public class calBean {
 			Connection con = DBManager.getUserConnection();
 			Statement smt = con.createStatement();
 	
-			String sql = "SELECT Weight FROM Cal WHERE Id = ? and Date = ?";
+			String sql = "SELECT * FROM Cal WHERE Id = ? AND Date <= ? ORDER BY Date DESC";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, this.getId());
 			ps.setString(2, this.getDate());
-			ResultSet rs = smt.executeQuery(sql);
+			ResultSet rs = ps.executeQuery();
 			
 			rs.next();
-			return rs.getFloat("Weight");
+			float result = rs.getFloat("Weight");
+			ps.close();
+			rs.close();
+			smt.close();
+			con.close();
+			return result;
 		}catch(Exception e){
 			return -1;
 		}

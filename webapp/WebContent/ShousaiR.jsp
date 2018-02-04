@@ -16,28 +16,28 @@ userInfoBean ub = (userInfoBean)se.getAttribute("userBean");%>
 <h1>ルート詳細データ</h1>
 
 <TABLE width="70%" height="5%">
-    <TR>
-    <TD align="center" valign="middle">日付</TD>
- <% //   <TD align="center" valign="middle">回数</TD>%>
-    <TD align="center" valign="middle">走行距離</TD>
-    <TD align="center" valign="middle">スタート時間</TD>
-    <TD align="center" valign="middle">フィニッシュ時間</TD>
-	</TR>
-	
-	<%
+		<TR>
+			<TD align="center" valign="middle">日付</TD>
+			<TD align="center" valign="middle">消費カロリー</TD>
+			<TD align="center" valign="middle">走行距離</TD>
+			<TD align="center" valign="middle">スタート時間</TD>
+			<TD align="center" valign="middle">フィニッシュ時間</TD>
+		</TR>
+
+		<%
    ArrayList<routeBean> list = (ArrayList<routeBean>)request.getAttribute("routeList");
    for (int i=0; i<list.size(); i++) {
 	   routeBean rb = (routeBean)list.get(i);
 	%>
-	<TR>
-    <TD align="center" valign="middle"><%=rb.getDate() %></TD>
-    <%//<TD align="center" valign="middle"><%=rb.getNo() %></TD>%>
-    <TD align="center" valign="middle"><%=rb.getDistance() %> km</TD>
-    <TD align="center" valign="middle"><%=rb.getStart() %></TD>
-    <TD align="center" valign="middle"><%=rb.getFinish() %></TD>
-	</TR>
+		<TR>
+			<TD align="center" valign="middle"><%=rb.getDate()%></TD>
+			<TD align="center" valign="middle"><%=String.format("%.3f",rb.calculateCal())%> kcal</TD>
+			<TD align="center" valign="middle"><%=rb.getDistance()%> km</TD>
+			<TD align="center" valign="middle"><%=rb.getStart()%></TD>
+			<TD align="center" valign="middle"><%=rb.getFinish()%></TD>
+		</TR>
 
-	<%
+		<%
 	} 
 	%>
 
